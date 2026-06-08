@@ -13,6 +13,8 @@ const footerLinks = [
   },
 ];
 
+const fontFamily = '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif';
+
 const fadeUpVariants = {
   hidden: {
     opacity: 0,
@@ -33,10 +35,8 @@ const fadeUpVariants = {
 export default function Footer() {
   return (
     <footer
-      className="w-full bg-black px-4 pb-[46px] pt-[44px] text-white md:px-0 md:pb-[52px] md:pt-[50px]"
-      style={{
-        fontFamily: '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
-      }}
+      className="w-full bg-black px-4 pb-[46px] pt-[44px] text-white md:px-[75px] md:pb-[52px] md:pt-[50px]"
+      style={{ fontFamily }}
     >
       <motion.div
         initial="hidden"
@@ -45,7 +45,7 @@ export default function Footer() {
           once: true,
           amount: 0.35,
         }}
-        className="mx-auto flex w-full max-w-[1050px] flex-col gap-[42px] md:flex-row md:items-start md:justify-between md:gap-0"
+        className="flex w-full flex-col gap-[42px] md:flex-row md:items-start md:justify-between md:gap-0"
       >
         <motion.a
           href="#home"
@@ -57,7 +57,7 @@ export default function Footer() {
           whileTap={{
             scale: 0.98,
           }}
-          className="text-[31px] font-[700] lowercase leading-[100%] tracking-[-0.065em] text-white md:text-[31px]"
+          className="text-[31px] font-[700] lowercase leading-[100%] tracking-[-0.065em] text-white"
         >
           studio due
         </motion.a>
@@ -98,8 +98,10 @@ export default function Footer() {
                 scale: 0.98,
               }}
               className={[
-                "text-[22px] font-[700] leading-[100%] tracking-[-0.065em] text-white md:text-[22px]",
-                index === 0 ? "underline decoration-white underline-offset-[4px]" : "",
+                "text-[18px] font-[700] leading-[100%] tracking-[-0.065em] text-white",
+                index === 0
+                  ? "underline decoration-white underline-offset-[4px]"
+                  : "",
               ]
                 .filter(Boolean)
                 .join(" ")}

@@ -60,7 +60,7 @@ export default function About() {
   return (
     <section
       id="nosotras"
-      className="relative w-full overflow-hidden bg-black px-4 py-[96px] text-white md:px-0 md:py-[120px]"
+      className="relative w-full overflow-hidden bg-black px-4 py-[86px] text-white md:px-[75px] md:py-[112px]"
       style={{ fontFamily }}
     >
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
@@ -81,7 +81,7 @@ export default function About() {
             duration: 1.2,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="absolute left-1/2 top-1/2 h-[76%] w-screen -translate-x-1/2 -translate-y-1/2 opacity-[0.12] md:h-[86%] md:w-screen"
+          className="absolute left-1/2 top-1/2 h-full w-screen -translate-x-1/2 -translate-y-1/2 opacity-[0.12]"
         >
           <Image
             src="/img/logo-negro.svg"
@@ -89,7 +89,7 @@ export default function About() {
             fill
             priority
             draggable={false}
-            className="object-contain object-center"
+            className="h-full w-full object-cover object-center"
           />
         </motion.div>
       </div>
@@ -102,41 +102,43 @@ export default function About() {
           once: true,
           amount: 0.22,
         }}
-        className="relative z-10 mx-auto w-full max-w-[1050px]"
+        className="relative z-10 w-full"
       >
         <motion.div
           variants={fadeUpVariants}
-          className="mb-[64px] md:mb-[76px]"
+          className="mb-[56px] md:mb-[70px]"
         >
-          <p className="mb-[16px] text-[15px] font-[400] uppercase leading-[100%] tracking-[-0.055em] text-white/65 md:text-[16px]">
+          <p className="mb-[14px] text-[14px] font-[400] uppercase leading-[100%] tracking-[-0.055em] text-white/65 md:text-[16px]">
             NOSOTRAS
           </p>
 
-          <h2 className="text-[44px] font-[700] uppercase leading-[92%] tracking-[-0.075em] text-white md:text-[72px]">
+          <h2 className="text-[42px] font-[700] uppercase leading-[92%] tracking-[-0.075em] text-white md:text-[72px]">
             POR QUÉ DUE
           </h2>
         </motion.div>
 
         <motion.div
           variants={containerVariants}
-          className="flex w-full flex-col gap-y-[48px] md:flex-row md:flex-wrap md:gap-x-[58px] md:gap-y-[56px]"
+          className="flex w-full flex-col gap-y-[44px] md:flex-row md:flex-wrap md:gap-x-[56px] md:gap-y-[56px] xl:gap-x-[70px]"
         >
           {aboutItems.map((item, index) => (
             <motion.article
               key={item.title}
               variants={fadeUpVariants}
               className={[
-                "w-full md:w-[calc((100%-116px)/3)]",
-                index >= 3 ? "md:w-[calc((100%-58px)/3)]" : "",
+                "w-full md:w-[calc((100%-112px)/3)] xl:w-[calc((100%-140px)/3)]",
+                index >= 3
+                  ? "md:w-[calc((100%-56px)/3)] xl:w-[calc((100%-70px)/3)]"
+                  : "",
               ]
                 .filter(Boolean)
                 .join(" ")}
             >
-              <h3 className="mb-[26px] text-[17px] font-[400] uppercase leading-[100%] tracking-[-0.06em] text-white">
+              <h3 className="mb-[22px] text-[15px] font-[400] uppercase leading-[100%] tracking-[-0.06em] text-white md:mb-[26px] md:text-[17px]">
                 {item.title}
               </h3>
 
-              <p className="max-w-[310px] text-[16px] font-[300] leading-[137%] tracking-[-0.045em] text-white/68 md:max-w-[300px]">
+              <p className="max-w-[315px] text-[14px] font-[300] leading-[26px] tracking-[1px] text-white/68 md:max-w-[337px] md:text-[18px]">
                 {item.text}
               </p>
             </motion.article>

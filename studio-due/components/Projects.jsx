@@ -20,8 +20,25 @@ const projects = [
   {
     name: "J’suis",
     category: "BRANDING · GESTIÓN DE REDES SOCIALES",
-    href: "https://www.instagram.com/jsuis_studio/",
     image: "/img/j-suis.svg",
+  },
+  {
+    name: "AMENSE MUCHO S&G",
+    category: "DESARROLLO WEB",
+    href: "https://amensemucho.pages.dev/",
+    image: "/img/s&g.svg",
+  },
+  {
+    name: "FEMTUR",
+    category: "DESARROLLO Y DISEÑO WEB",
+    href: "https://femtur.framer.website/",
+    image: "/img/femtur.svg",
+  },
+  {
+    name: "PUERTO HAMLET",
+    category: "GESTIÓN DE REDES SOCIALES",
+    href: "https://www.instagram.com/puerto_hamlet/?hl=es-la",
+    image: "/img/hamlet.svg",
   },
 ];
 
@@ -34,7 +51,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.08,
     },
   },
 };
@@ -110,15 +127,17 @@ function TypingTitle({ text }) {
 }
 
 function ProjectCard({ project }) {
+  const isExternal = project.href && project.href.startsWith("http");
+
   return (
     <motion.a
-      href={project.href}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={project.href || "#"}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       variants={itemVariants}
       initial="rest"
       whileHover="hover"
-      className="group block w-full md:w-[calc((100%-48px)/2)]"
+      className="group block w-[calc((100%-16px)/2)] md:w-[calc((100%-64px)/3)]"
     >
       <motion.div
         variants={{
@@ -135,7 +154,7 @@ function ProjectCard({ project }) {
         }}
         className="w-full"
       >
-        <div className="relative mb-[14px] aspect-[1.18/1] w-full overflow-hidden rounded-[28px] bg-[#111111]">
+        <div className="relative mb-[10px] aspect-[1.18/1] w-full overflow-hidden rounded-[18px] bg-[#111111] md:mb-[14px] md:rounded-[28px]">
           <motion.div
             variants={{
               rest: {
@@ -156,7 +175,7 @@ function ProjectCard({ project }) {
               alt={project.name}
               fill
               className="object-cover"
-              sizes="(max-width: 767px) 100vw, 50vw"
+              sizes="(max-width: 767px) 50vw, 33vw"
             />
           </motion.div>
 
@@ -192,9 +211,9 @@ function ProjectCard({ project }) {
                 },
               },
             }}
-            className="pointer-events-none absolute bottom-5 left-5 rounded-full bg-black/45 px-4 py-2 backdrop-blur-md"
+            className="pointer-events-none absolute bottom-4 left-4 hidden rounded-full bg-black/45 px-4 py-2 backdrop-blur-md md:block"
           >
-            <p className="text-[12px] font-[400] uppercase leading-[100%] tracking-[-0.045em] text-white">
+            <p className="text-[12px] font-[400] uppercase leading-[100%] tracking-[1px] text-white">
               Ver proyecto
             </p>
           </motion.div>
@@ -202,14 +221,14 @@ function ProjectCard({ project }) {
 
         <div className="pl-[2px]">
           <h3
-            className="mb-[5px] text-[16px] font-[400] uppercase leading-[100%] tracking-[-0.055em] text-white md:text-[17px]"
+            className="mb-[4px] text-[12px] font-[400] uppercase leading-[100%] tracking-[-0.055em] text-white sm:text-[14px] md:mb-[5px] md:text-[17px]"
             style={{ fontFamily }}
           >
             {project.name}
           </h3>
 
           <p
-            className="text-[10px] font-[300] uppercase leading-[120%] tracking-[-0.045em] text-white/68"
+            className="text-[7px] font-[300] uppercase leading-[120%] tracking-[1px] text-white/68 sm:text-[8px] md:text-[10px]"
             style={{ fontFamily }}
           >
             {project.category}
@@ -224,7 +243,7 @@ export default function Projects() {
   return (
     <section
       id="proyectos"
-      className="w-full bg-black px-4 py-[96px] text-white md:px-0 md:py-[120px]"
+      className="w-full bg-black px-4 py-[86px] text-white md:px-[75px] md:py-[112px]"
       style={{ fontFamily }}
     >
       <motion.div
@@ -235,16 +254,16 @@ export default function Projects() {
           once: true,
           amount: 0.12,
         }}
-        className="mx-auto w-full max-w-[1050px]"
+        className="w-full"
       >
         <motion.div
           variants={itemVariants}
-          className="mb-[64px] md:mb-[76px]"
+          className="mb-[56px] md:mb-[70px]"
         >
           <TypingTitle text="PROYECTOS" />
         </motion.div>
 
-        <div className="flex w-full flex-col gap-x-[48px] gap-y-[54px] md:flex-row md:flex-wrap md:gap-y-[68px]">
+        <div className="flex w-full flex-wrap gap-x-[16px] gap-y-[34px] md:gap-x-[32px] md:gap-y-[68px]">
           {projects.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}

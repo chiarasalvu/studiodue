@@ -19,7 +19,7 @@ export default function HomeClient() {
     const timer = setTimeout(() => {
       setIsLoading(false);
       document.body.style.overflow = "";
-    }, 1800);
+    }, 3400);
 
     return () => {
       clearTimeout(timer);

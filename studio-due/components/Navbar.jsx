@@ -4,18 +4,9 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  {
-    label: "SERVICIOS",
-    href: "#servicios",
-  },
-  {
-    label: "NOSOTRAS",
-    href: "#nosotras",
-  },
-  {
-    label: "CONTACTO",
-    href: "#contacto",
-  },
+  { label: "SERVICIOS", href: "#servicios" },
+  { label: "NOSOTRAS", href: "#nosotras" },
+  { label: "CONTACTO", href: "#contacto" },
 ];
 
 const menuVariants = {
@@ -52,6 +43,8 @@ const linkVariants = {
   },
 };
 
+const fontFamily = '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif';
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -68,19 +61,16 @@ export default function Navbar() {
           duration: 0.7,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="absolute left-0 top-0 z-50 w-full bg-transparent px-4 pt-5 text-white md:px-0 md:pt-0"
+        className="absolute left-0 top-0 z-50 w-full bg-transparent px-4 pt-5 text-white md:px-[75px] md:pt-0"
+        style={{ fontFamily }}
       >
-        <nav className="mx-auto flex h-[82px] w-full max-w-[1050px] items-center justify-between md:h-[96px]">
+        <nav className="flex h-[82px] w-full items-center justify-between md:h-[96px]">
           <motion.a
             href="#home"
             onClick={closeMenu}
             whileHover={{ opacity: 0.75 }}
             whileTap={{ scale: 0.98 }}
-            className="text-[25px] font-[700] leading-[100%] tracking-[-0.055em] text-white md:text-[25px]"
-            style={{
-              fontFamily:
-                '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
-            }}
+            className="text-[25px] font-[700] leading-[100%] tracking-[-0.055em] text-white"
           >
             studio due
           </motion.a>
@@ -103,10 +93,6 @@ export default function Navbar() {
                 }}
                 whileTap={{ scale: 0.98 }}
                 className="text-[15px] font-[400] uppercase leading-[100%] tracking-[-0.07em] text-white"
-                style={{
-                  fontFamily:
-                    '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
-                }}
               >
                 {item.label}
               </motion.a>
@@ -144,12 +130,9 @@ export default function Navbar() {
               },
             }}
             className="fixed inset-0 z-[999] flex min-h-screen w-full flex-col bg-black px-4 text-white md:hidden"
-            style={{
-              fontFamily:
-                '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif',
-            }}
+            style={{ fontFamily }}
           >
-            <div className="mx-auto flex h-[82px] w-full max-w-[1050px] items-center justify-between">
+            <div className="flex h-[82px] w-full items-center justify-between">
               <motion.a
                 href="#home"
                 onClick={closeMenu}
@@ -174,7 +157,7 @@ export default function Navbar() {
               </motion.button>
             </div>
 
-            <nav className="flex flex-1 flex-col items-center justify-center gap-[46px] pb-[82px]">
+            <nav className="flex flex-1 flex-col items-center justify-center gap-[36px] pb-[82px]">
               {navItems.map((item) => (
                 <motion.a
                   key={item.href}
@@ -183,7 +166,7 @@ export default function Navbar() {
                   variants={linkVariants}
                   whileHover={{ opacity: 0.65 }}
                   whileTap={{ scale: 0.97 }}
-                  className="text-center text-[22px] font-[400] uppercase leading-[100%] tracking-[-0.065em] text-white"
+                  className="text-center text-[20px] font-[400] uppercase leading-[100%] tracking-[-0.065em] text-white"
                 >
                   {item.label}
                 </motion.a>
