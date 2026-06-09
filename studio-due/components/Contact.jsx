@@ -8,7 +8,6 @@ const services = [
   "Branding",
   "Email marketing",
   "Diseño y desarrollo web",
-  "Otro",
 ];
 
 const fontFamily = '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif';
@@ -40,7 +39,7 @@ const fadeUpVariants = {
   },
 };
 
-function Field({ label, type = "text", name, placeholder }) {
+function Field({ label, type = "text", name, placeholder, required = false }) {
   return (
     <div className="w-full">
       <label
@@ -55,6 +54,7 @@ function Field({ label, type = "text", name, placeholder }) {
         name={name}
         type={type}
         placeholder={placeholder}
+        required={required}
         className="h-[42px] w-full border-0 border-b border-white/55 bg-transparent px-0 pb-[18px] text-[16px] font-[300] leading-[100%] tracking-[1px] text-white outline-none transition-colors duration-300 placeholder:tracking-[1px] placeholder:text-white/35 focus:border-white"
       />
     </div>
@@ -239,21 +239,6 @@ function ServiceDropdown({ value, onChange, options }) {
 export default function Contact() {
   const [selectedService, setSelectedService] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      service: formData.get("service"),
-      message: formData.get("message"),
-    };
-
-    console.log("Consulta enviada:", data);
-  };
-
   return (
     <section
       id="contacto"
@@ -276,9 +261,16 @@ export default function Contact() {
 
         <motion.form
           variants={containerVariants}
-          onSubmit={handleSubmit}
+          action="https://formspree.io/f/mwvjqpqg"
+          method="POST"
           className="mx-auto flex w-full max-w-[900px] flex-col"
         >
+          <input
+            type="hidden"
+            name="_subject"
+            value="Nueva consulta desde Studio Due"
+          />
+
           <motion.div
             variants={fadeUpVariants}
             className="mb-[44px] flex w-full flex-col gap-[42px] md:flex-row md:gap-[48px]"
@@ -287,6 +279,7 @@ export default function Contact() {
               label="Nombre"
               name="name"
               placeholder="Su nombre completo"
+              required
             />
 
             <Field
@@ -294,6 +287,7 @@ export default function Contact() {
               name="email"
               type="email"
               placeholder="correo@ejemplo.com"
+              required
             />
           </motion.div>
 
@@ -318,6 +312,7 @@ export default function Contact() {
               name="message"
               placeholder="Cuéntenos sobre su proyecto"
               rows={4}
+              required
               className="h-[120px] w-full resize-none border-0 border-b border-white/55 bg-transparent px-0 pb-[18px] text-[16px] font-[300] leading-[135%] tracking-[1px] text-white outline-none transition-colors duration-300 placeholder:tracking-[1px] placeholder:text-white/35 focus:border-white md:h-[126px]"
             />
           </motion.div>

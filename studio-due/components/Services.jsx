@@ -8,57 +8,56 @@ const services = [
     number: "01",
     title: "GESTIÓN DE REDES SOCIALES",
     description:
-      "Creamos y gestionamos la presencia digital de tu marca con una estrategia clara, contenido coherente y una estética alineada a tu identidad.",
+      "Desarrollamos y gestionamos la presencia digital de tu marca combinando creatividad, diseño y estrategia. Creamos contenido pensado no solo para verse bien, sino para conectar con tu audiencia, fortalecer tu identidad y generar resultados reales.",
     items: [
-      "Estrategia mensual de contenido",
-      "Diseño de piezas para redes",
-      "Calendario editorial",
-      "Copywriting y tono de marca",
-      "Análisis de métricas y optimización",
+      "ESTRATEGIA DE CONTENIDO",
+      "CALENDARIO MENSUAL",
+      "DISEÑO DE PIEZAS GRÁFICAS",
+      "REDACCIÓN DE COPIES",
+      "PUBLICACIÓN Y SEGUIMIENTO",
+      "REPORTES MENSUALES",
     ],
-    cta: "Ideal para marcas que quieren crecer con una presencia constante, profesional y estética.",
   },
   {
     number: "02",
     title: "BRANDING",
     description:
-      "Construimos una identidad visual y conceptual que represente la esencia de tu marca, conecte con tu audiencia y se sostenga en el tiempo.",
+      "Toda marca tiene un ADN propio. Nuestro trabajo consiste en identificarlo, darle estructura y convertirlo en una identidad visual sólida y consistente. Te ayudamos a construir una marca que no solo se vea bien, sino que transmita con claridad quién es y qué la diferencia.",
     items: [
-      "Dirección creativa",
-      "Identidad visual",
-      "Paleta cromática y tipografías",
-      "Sistema gráfico",
-      "Manual de marca",
+      "BENCHMARKING",
+      "ESTRATEGIA DE COMUNICACIÓN",
+      "DISEÑO DE ELEMENTOS GRÁFICOS",
+      "SISTEMA VISUAL",
+      "PALETA CROMÁTICA",
+      "TIPOGRAFÍAS",
     ],
-    cta: "Ideal para marcas nuevas o proyectos que necesitan redefinir su universo visual.",
   },
   {
     number: "03",
     title: "EMAIL MARKETING",
     description:
-      "Diseñamos campañas de email pensadas para comunicar mejor, fidelizar clientes y convertir de forma más directa y medible.",
+      "Creamos campañas de email que combinan estrategia, contenido y diseño para generar una comunicación más directa y valiosa con tu audiencia. Una herramienta clave para fortalecer el vínculo con tu comunidad, acompañar el recorrido del cliente y potenciar resultados.",
     items: [
-      "Diseño de newsletters",
-      "Automatizaciones",
-      "Segmentación de base de datos",
-      "Copywriting para campañas",
-      "Optimización de aperturas y clicks",
+      "ESTRATEGIA",
+      "DISEÑO DE NEWSLETTERS",
+      "AUTOMATIZACIONES",
+      "SEGMENTACIÓN DE AUDIENCIAS",
+      "COPYWRITING",
+      "REPORTES Y OPTIMIZACIONES",
     ],
-    cta: "Ideal para marcas que quieren activar su comunidad y vender sin depender solo de redes.",
   },
   {
     number: "04",
     title: "DISEÑO Y DESARROLLO WEB",
     description:
-      "Diseñamos y desarrollamos sitios web modernos, responsive y estratégicos, pensados para comunicar, convertir y elevar la percepción de marca.",
+      "Tu sitio web suele ser uno de los primeros puntos de contacto con tu marca. Diseñamos experiencias digitales pensadas para reflejar tu identidad, facilitar la navegación y acompañar tus objetivos de negocio.",
     items: [
-      "Diseño UI responsive",
-      "Desarrollo web en Next.js, Framer o la herramienta que mejor aplique",
-      "Animaciones e interacciones",
-      "Optimización mobile",
-      "Integración con formularios, links y herramientas externas",
+      "DISEÑO UI RESPONSIVE",
+      "DESARROLLO WEB",
+      "ANIMACIONES E INTERACCIONES",
+      "OPTIMIZACIÓN MOBILE",
+      "INTEGRACIÓN CON FORMULARIOS, LINKS Y HERRAMIENTAS EXTERNAS.",
     ],
-    cta: "Ideal para marcas que necesitan una web profesional, funcional y visualmente diferencial.",
   },
 ];
 
@@ -103,7 +102,12 @@ function ServiceItem({ service, isOpen, onClick }) {
         initial="rest"
         whileHover="hover"
         animate="rest"
-        className="group relative flex min-h-[98px] w-full items-center overflow-hidden text-left text-white md:min-h-[108px]"
+        className={[
+          "group relative flex w-full overflow-hidden text-left text-white",
+          isOpen
+            ? "min-h-[96px] items-start pt-[26px] md:min-h-[118px] md:pt-[34px]"
+            : "min-h-[98px] items-center md:min-h-[108px]",
+        ].join(" ")}
       >
         <motion.div
           variants={{
@@ -116,11 +120,11 @@ function ServiceItem({ service, isOpen, onClick }) {
               },
             },
           }}
-          className="absolute inset-0 bg-white/[0.055]"
+          className="absolute inset-0 bg-white/[0.045]"
         />
 
-        <div className="relative z-10 flex w-full items-center justify-between">
-          <div className="flex items-center gap-[18px] md:gap-[32px]">
+        <div className="relative z-10 flex w-full items-start justify-between">
+          <div className="flex items-start gap-[18px] md:gap-[32px]">
             <motion.span
               variants={{
                 rest: { opacity: 0.42, x: 0 },
@@ -130,7 +134,7 @@ function ServiceItem({ service, isOpen, onClick }) {
                 duration: 0.3,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="w-[24px] text-[9px] font-[400] leading-[100%] tracking-[-0.035em] text-white md:w-[34px] md:text-[10px]"
+              className="mt-[5px] w-[24px] text-[9px] font-[400] leading-[100%] tracking-[1px] text-white/55 md:mt-[8px] md:w-[34px] md:text-[10px]"
             >
               {service.number}
             </motion.span>
@@ -144,7 +148,7 @@ function ServiceItem({ service, isOpen, onClick }) {
                 duration: 0.3,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="max-w-[255px] text-[18px] font-[700] uppercase leading-[104%] tracking-[-0.055em] text-white sm:max-w-none md:text-[25px]"
+              className="max-w-[265px] text-[18px] font-[700] uppercase leading-[104%] tracking-[-0.055em] text-white sm:max-w-none md:text-[32px]"
             >
               {service.title}
             </motion.h3>
@@ -152,15 +156,15 @@ function ServiceItem({ service, isOpen, onClick }) {
 
           <motion.span
             animate={{
-              rotate: isOpen ? 135 : 0,
-              y: isOpen ? 2 : 0,
-              opacity: isOpen ? 0.75 : 1,
+              rotate: isOpen ? 90 : 0,
+              y: isOpen ? 4 : 0,
+              opacity: isOpen ? 0.85 : 1,
             }}
             transition={{
               duration: 0.32,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="pr-[4px] text-[30px] font-[300] leading-[100%] tracking-[-0.06em] text-white md:pr-[8px] md:text-[34px]"
+            className="pr-[4px] text-[30px] font-[300] leading-[100%] tracking-[-0.06em] text-white md:pr-[8px] md:text-[42px]"
           >
             ↗
           </motion.span>
@@ -186,51 +190,44 @@ function ServiceItem({ service, isOpen, onClick }) {
               filter: "blur(8px)",
             }}
             transition={{
-              duration: 0.48,
+              duration: 0.5,
               ease: [0.22, 1, 0.36, 1],
             }}
             className="overflow-hidden"
           >
-            <div className="flex w-full flex-col gap-[34px] pb-[42px] pt-[4px] md:flex-row md:gap-[70px] md:pb-[54px] md:pl-[66px]">
+            <div className="flex w-full flex-col gap-[42px] pb-[58px] pt-0 pl-[42px] md:grid md:grid-cols-[1fr_0.92fr] md:gap-[90px] md:pb-[112px] md:pt-[84px] md:pl-[66px] lg:gap-[130px]">
               <motion.div
-                initial={{ opacity: 0, y: 14 }}
+                initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.45,
+                  duration: 0.48,
                   delay: 0.08,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="w-full md:max-w-[470px]"
+                className="w-full md:max-w-[670px]"
               >
-                <p className="text-[16px] font-[300] leading-[145%] tracking-[1px] text-white/68 md:text-[18px]">
+                <p className="text-[16px] font-[300] leading-[170%] tracking-[1px] text-white md:text-[20px] md:leading-[170%]">
                   {service.description}
-                </p>
-
-                <p className="mt-[28px] text-[14px] font-[300] uppercase leading-[135%] tracking-[1px] text-white/42 md:text-[15px]">
-                  {service.cta}
                 </p>
               </motion.div>
 
               <motion.ul
-                initial={{ opacity: 0, y: 14 }}
+                initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.45,
+                  duration: 0.48,
                   delay: 0.14,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="flex w-full flex-col md:max-w-[430px]"
+                className="flex w-full flex-col gap-[20px] md:max-w-[520px] md:gap-[24px]"
               >
                 {service.items.map((item, index) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-[14px] border-t border-white/[0.12] py-[14px] last:border-b last:border-white/[0.12]"
-                  >
-                    <span className="mt-[4px] text-[10px] font-[300] leading-[100%] text-white/38">
+                  <li key={item} className="flex items-start gap-[20px]">
+                    <span className="mt-[4px] w-[22px] text-[12px] font-[300] leading-[100%] tracking-[1px] text-white/38 md:text-[13px]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
 
-                    <span className="text-[15px] font-[300] uppercase leading-[130%] tracking-[1px] text-white/76 md:text-[16px]">
+                    <span className="text-[15px] font-[300] uppercase leading-[135%] tracking-[1px] text-white/42 md:text-[18px]">
                       {item}
                     </span>
                   </li>

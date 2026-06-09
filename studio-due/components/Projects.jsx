@@ -30,7 +30,7 @@ const projects = [
   },
   {
     name: "FEMTUR",
-    category: "DESARROLLO Y DISEÑO WEB",
+    category: "DISEÑO Y DESARROLLO WEB",
     href: "https://femtur.framer.website/",
     image: "/img/femtur.svg",
   },
