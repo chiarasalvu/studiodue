@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Studio due",
-  description: "Digital Agency",
+  description: "Studio Due es un estudio creativo especializado en diseño web, branding, redes sociales y email marketing.",
 };
 
 export default function RootLayout({
