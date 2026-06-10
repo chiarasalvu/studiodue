@@ -89,7 +89,7 @@ export default function About() {
             fill
             priority
             draggable={false}
-            className="h-full w-full object-cover object-center"
+            className=" hidden md:block h-full w-full object-cover object-center"
           />
         </motion.div>
       </div>

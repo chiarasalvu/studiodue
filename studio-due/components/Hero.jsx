@@ -68,6 +68,11 @@ export default function Hero() {
       className="relative flex min-h-screen w-full overflow-hidden bg-black px-4 text-white md:px-[75px]"
       style={{ fontFamily }}
     >
+      <h1 className="sr-only">
+        Studio Due - Estudio digital boutique de diseño web, branding, redes
+        sociales y email marketing en Argentina
+      </h1>
+
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <motion.div
           style={{ x: haloX, y: haloY }}
@@ -182,7 +187,7 @@ export default function Hero() {
             >
               <Image
                 src="/img/logo.svg"
-                alt="due"
+                alt="Studio Due"
                 width={564}
                 height={317}
                 priority

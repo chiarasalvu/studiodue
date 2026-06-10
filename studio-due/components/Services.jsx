@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -91,14 +91,18 @@ const fadeUpVariants = {
 };
 
 function ServiceItem({ service, isOpen, onClick }) {
+  const contentId = `service-content-${service.number}`;
+
   return (
-    <motion.div
+    <motion.article
       variants={fadeUpVariants}
       className="border-b border-white/[0.16]"
     >
       <motion.button
         type="button"
         onClick={onClick}
+        aria-expanded={isOpen}
+        aria-controls={contentId}
         initial="rest"
         whileHover="hover"
         animate="rest"
@@ -171,73 +175,65 @@ function ServiceItem({ service, isOpen, onClick }) {
         </div>
       </motion.button>
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
+      <motion.div
+        id={contentId}
+        initial={false}
+        animate={{
+          height: isOpen ? "auto" : 0,
+          opacity: isOpen ? 1 : 0,
+          filter: isOpen ? "blur(0px)" : "blur(8px)",
+        }}
+        transition={{
+          duration: 0.5,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="overflow-hidden"
+      >
+        <div className="flex w-full flex-col gap-[42px] pb-[58px] pt-0 pl-[42px] md:grid md:grid-cols-[1fr_0.92fr] md:gap-[90px] md:pb-[112px] md:pt-[84px] md:pl-[66px] lg:gap-[130px]">
           <motion.div
-            initial={{
-              height: 0,
-              opacity: 0,
-              filter: "blur(8px)",
-            }}
             animate={{
-              height: "auto",
-              opacity: 1,
-              filter: "blur(0px)",
-            }}
-            exit={{
-              height: 0,
-              opacity: 0,
-              filter: "blur(8px)",
+              opacity: isOpen ? 1 : 0,
+              y: isOpen ? 0 : 18,
             }}
             transition={{
-              duration: 0.5,
+              duration: 0.48,
+              delay: isOpen ? 0.08 : 0,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="overflow-hidden"
+            className="w-full md:max-w-[670px]"
           >
-            <div className="flex w-full flex-col gap-[42px] pb-[58px] pt-0 pl-[42px] md:grid md:grid-cols-[1fr_0.92fr] md:gap-[90px] md:pb-[112px] md:pt-[84px] md:pl-[66px] lg:gap-[130px]">
-              <motion.div
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.48,
-                  delay: 0.08,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="w-full md:max-w-[670px]"
-              >
-                <p className="text-[16px] font-[300] leading-[170%] tracking-[1px] text-white md:text-[20px] md:leading-[170%]">
-                  {service.description}
-                </p>
-              </motion.div>
-
-              <motion.ul
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.48,
-                  delay: 0.14,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="flex w-full flex-col gap-[20px] md:max-w-[520px] md:gap-[24px]"
-              >
-                {service.items.map((item, index) => (
-                  <li key={item} className="flex items-start gap-[20px]">
-                    <span className="mt-[4px] w-[22px] text-[12px] font-[300] leading-[100%] tracking-[1px] text-white/38 md:text-[13px]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-
-                    <span className="text-[15px] font-[300] uppercase leading-[135%] tracking-[1px] text-white/42 md:text-[18px]">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </motion.ul>
-            </div>
+            <p className="text-[16px] font-[300] leading-[170%] tracking-[1px] text-white md:text-[20px] md:leading-[170%]">
+              {service.description}
+            </p>
           </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+
+          <motion.ul
+            animate={{
+              opacity: isOpen ? 1 : 0,
+              y: isOpen ? 0 : 18,
+            }}
+            transition={{
+              duration: 0.48,
+              delay: isOpen ? 0.14 : 0,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="flex w-full flex-col gap-[20px] md:max-w-[520px] md:gap-[24px]"
+          >
+            {service.items.map((item, index) => (
+              <li key={item} className="flex items-start gap-[20px]">
+                <span className="mt-[4px] w-[22px] text-[12px] font-[300] leading-[100%] tracking-[1px] text-white/38 md:text-[13px]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span className="text-[15px] font-[300] uppercase leading-[135%] tracking-[1px] text-white/42 md:text-[18px]">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </motion.ul>
+        </div>
+      </motion.div>
+    </motion.article>
   );
 }
 

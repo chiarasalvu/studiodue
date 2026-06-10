@@ -236,8 +236,100 @@ function ServiceDropdown({ value, onChange, options }) {
   );
 }
 
+function SubmitMessage({ status, onClose }) {
+  const isSuccess = status === "success";
+
+  return (
+    <AnimatePresence>
+      {status && (
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 18,
+            scale: 0.96,
+            filter: "blur(8px)",
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            filter: "blur(0px)",
+          }}
+          exit={{
+            opacity: 0,
+            y: 18,
+            scale: 0.96,
+            filter: "blur(8px)",
+          }}
+          transition={{
+            duration: 0.45,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="mx-auto mt-[34px] flex w-full max-w-[520px] items-start justify-between gap-[20px] rounded-[24px] border border-white/12 bg-white/[0.055] px-[22px] py-[20px] text-white shadow-[0_20px_70px_rgba(0,0,0,0.45)] backdrop-blur-md"
+        >
+          <div>
+            <p className="mb-[8px] text-[18px] font-[700] uppercase leading-[100%] tracking-[-0.055em] text-white">
+              {isSuccess ? "Consulta enviada" : "No se pudo enviar"}
+            </p>
+
+            <p className="text-[14px] font-[300] leading-[145%] tracking-[1px] text-white/58">
+              {isSuccess
+                ? "Gracias por escribirnos. Te vamos a responder muy pronto."
+                : "Probá nuevamente en unos minutos o escribinos por WhatsApp."}
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Cerrar mensaje"
+            className="mt-[-4px] text-[24px] font-[300] leading-[100%] text-white/55 transition-colors duration-300 hover:text-white"
+          >
+            ×
+          </button>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export default function Contact() {
   const [selectedService, setSelectedService] = useState("");
+  const [submitStatus, setSubmitStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mwvjqpqg", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("No se pudo enviar el formulario.");
+      }
+
+      setSubmitStatus("success");
+      form.reset();
+      setSelectedService("");
+    } catch (error) {
+      console.error(error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section
@@ -261,8 +353,7 @@ export default function Contact() {
 
         <motion.form
           variants={containerVariants}
-          action="https://formspree.io/f/mwvjqpqg"
-          method="POST"
+          onSubmit={handleSubmit}
           className="mx-auto flex w-full max-w-[900px] flex-col"
         >
           <input
@@ -323,22 +414,35 @@ export default function Contact() {
           >
             <motion.button
               type="submit"
-              whileHover={{
-                scale: 1.035,
-                backgroundColor: "#ffffff",
-                color: "#000000",
-              }}
-              whileTap={{ scale: 0.97 }}
+              disabled={isSubmitting}
+              whileHover={
+                !isSubmitting
+                  ? {
+                      scale: 1.035,
+                      backgroundColor: "#ffffff",
+                      color: "#000000",
+                    }
+                  : {}
+              }
+              whileTap={!isSubmitting ? { scale: 0.97 } : {}}
               transition={{
                 duration: 0.28,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="h-[64px] w-full max-w-[248px] rounded-full bg-white px-8 text-[18px] font-[400] uppercase leading-[100%] tracking-[-0.055em] text-black"
+              className={[
+                "h-[64px] w-full max-w-[248px] rounded-full bg-white px-8 text-[18px] font-[400] uppercase leading-[100%] tracking-[-0.055em] text-black transition-opacity duration-300",
+                isSubmitting ? "cursor-not-allowed opacity-55" : "",
+              ].join(" ")}
             >
-              Enviar consulta
+              {isSubmitting ? "Enviando..." : "Enviar consulta"}
             </motion.button>
           </motion.div>
         </motion.form>
+
+        <SubmitMessage
+          status={submitStatus}
+          onClose={() => setSubmitStatus(null)}
+        />
       </motion.div>
     </section>
   );

@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { label: "SERVICIOS", href: "#servicios" },
-  { label: "NOSOTRAS", href: "#nosotras" },
-  { label: "CONTACTO", href: "#contacto" },
+  { label: "SERVICIOS", href: "/#servicios" },
+  { label: "NOSOTRAS", href: "/#nosotras" },
+  { label: "CONTACTO", href: "/#contacto" },
 ];
 
 const menuVariants = {

@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const phoneNumber = "5491112345678";
+const phoneNumber = "5491136888661";
 const message = "Hola Studio Due, quiero consultar por un proyecto.";
 
 export default function FloatingWhatsApp() {
@@ -31,18 +31,19 @@ export default function FloatingWhatsApp() {
       whileTap={{
         scale: 0.94,
       }}
-      className="fixed bottom-[10px] right-[14px] z-[9998] flex h-[48px] w-[48px] items-center justify-center rounded-full border border-white/15 bg-white text-black shadow-[0_14px_34px_rgba(0,0,0,0.35)] backdrop-blur-md transition-colors duration-300 hover:bg-white/90 md:bottom-[16px] md:right-[32px] md:h-[52px] md:w-[52px]"
+      className="fixed bottom-[15px] right-[14px] z-[9998] flex h-[48px] w-[48px] items-center justify-center rounded-full border border-[#25D366]/30 bg-[#25D366] text-white shadow-[0_14px_34px_rgba(37,211,102,0.28)] backdrop-blur-md transition-colors duration-300 hover:bg-[#20BD5A] md:bottom-[16px] md:right-[32px] md:h-[52px] md:w-[52px]"
     >
       <motion.span
         animate={{
-          scale: [1, 1.08, 1],
+          scale: [1, 1.16, 1],
+          opacity: [0.35, 0, 0.35],
         }}
         transition={{
           duration: 2.2,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute inset-0 rounded-full border border-white/25"
+        className="absolute inset-0 rounded-full border border-[#25D366]"
       />
 
       <svg
@@ -51,7 +52,7 @@ export default function FloatingWhatsApp() {
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="relative z-10 h-[24px] w-[24px] md:h-[25px] md:w-[25px]"
+        className="relative z-10 h-[24px] w-[24px] text-white md:h-[25px] md:w-[25px]"
       >
         <path
           d="M16.001 3C8.833 3 3.001 8.712 3.001 15.733C3.001 18.236 3.763 20.579 5.075 22.551L3.714 28.867L10.224 27.393C12.003 28.275 13.964 28.733 16.001 28.733C23.169 28.733 29.001 23.021 29.001 16C29.001 8.979 23.169 3 16.001 3Z"

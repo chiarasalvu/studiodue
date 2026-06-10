@@ -26,7 +26,7 @@ const projects = [
     name: "AMENSE MUCHO S&G",
     category: "DESARROLLO WEB",
     href: "https://amensemucho.pages.dev/",
-    image: "/img/s&g.svg",
+    image: "/img/sg.svg",
   },
   {
     name: "FEMTUR",
@@ -172,7 +172,7 @@ function ProjectCard({ project }) {
           >
             <Image
               src={project.image}
-              alt={project.name}
+              alt={`${project.name} - ${project.category}`}
               fill
               className="object-cover"
               sizes="(max-width: 767px) 50vw, 33vw"
