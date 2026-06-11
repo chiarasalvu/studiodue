@@ -9,13 +9,13 @@ const projects = [
     name: "ESTUDIO M",
     category: "GESTIÓN DE REDES SOCIALES",
     href: "https://www.instagram.com/estudiom.guadamonasterio/",
-    image: "/img/estudio-m.svg",
+    image: "/img/m.jpg",
   },
   {
     name: "BOTTINI BROKER",
     category: "GESTIÓN DE REDES SOCIALES",
     href: "https://www.instagram.com/bottinibroker/",
-    image: "/img/bottini-broker.svg",
+    image: "/img/b.jpg",
   },
   {
     name: "J’suis",
@@ -26,19 +26,19 @@ const projects = [
     name: "AMENSE MUCHO S&G",
     category: "DESARROLLO WEB",
     href: "https://amensemucho.pages.dev/",
-    image: "/img/sg.svg",
+    image: "/img/sg.jpg",
   },
   {
     name: "FEMTUR",
     category: "DISEÑO Y DESARROLLO WEB",
     href: "https://femtur.framer.website/",
-    image: "/img/femtur.svg",
+    image: "/img/f.jpg",
   },
   {
     name: "PUERTO HAMLET",
     category: "GESTIÓN DE REDES SOCIALES",
     href: "https://www.instagram.com/puerto_hamlet/?hl=es-la",
-    image: "/img/hamlet.svg",
+    image: "/img/ph.jpg",
   },
 ];
 
