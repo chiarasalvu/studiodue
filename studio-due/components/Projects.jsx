@@ -158,10 +158,10 @@ function ProjectCard({ project }) {
           <motion.div
             variants={{
               rest: {
-                scale: 1,
+                scale: 1.18,
               },
               hover: {
-                scale: 1.07,
+                scale: 1.26,
                 transition: {
                   duration: 0.75,
                   ease: [0.22, 1, 0.36, 1],
@@ -228,7 +228,7 @@ function ProjectCard({ project }) {
           </h3>
 
           <p
-            className="text-[7px] font-[300] uppercase leading-[120%] tracking-[1px] text-white/68 sm:text-[8px] md:text-[10px]"
+            className="text-[10px] font-[300] uppercase leading-[120%] tracking-[1px] text-white/68 sm:text-[11px] md:text-[14px]"
             style={{ fontFamily }}
           >
             {project.category}
