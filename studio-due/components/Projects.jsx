@@ -20,7 +20,7 @@ const projects = [
   {
     name: "J’suis",
     category: "BRANDING · GESTIÓN DE REDES SOCIALES",
-    image: "/img/j-suis.svg",
+    image: "/img/j.jpg",
   },
   {
     name: "AMENSE MUCHO S&G",
