@@ -23,10 +23,28 @@ const projects = [
     image: "/img/j.jpg",
   },
   {
-    name: "AMENSE MUCHO S&G",
-    category: "DESARROLLO WEB",
-    href: "https://amensemucho.pages.dev/",
-    image: "/img/sg.jpg",
+    name: "PUERTO HAMLET",
+    category: "GESTIÓN DE REDES SOCIALES",
+    href: "https://www.instagram.com/puerto_hamlet/?hl=es-la",
+    image: "/img/ph.jpg",
+  },
+  {
+    name: "BAIRES FLY",
+    category: "DISEÑO Y DESARROLLO WEB",
+    href: "https://www.bairesfly.com",
+    image: "/img/bf.jpg",
+  },
+  {
+    name: "HOTELES SAVOIA",
+    category: "DISEÑO Y DESARROLLO WEB",
+    href: "https://www.hotelessavoia.com",
+    image: "/img/hs.jpg",
+  },
+  {
+    name: "BRICKELL DESARROLLADORA",
+    category: "DISEÑO Y DESARROLLO WEB",
+    href: "https://www.brickelldesarrolladora.com",
+    image: "/img/bd-v3.jpg",
   },
   {
     name: "FEMTUR",
@@ -35,10 +53,10 @@ const projects = [
     image: "/img/f.jpg",
   },
   {
-    name: "PUERTO HAMLET",
-    category: "GESTIÓN DE REDES SOCIALES",
-    href: "https://www.instagram.com/puerto_hamlet/?hl=es-la",
-    image: "/img/ph.jpg",
+    name: "AMENSE MUCHO S&G",
+    category: "DESARROLLO WEB",
+    href: "https://amensemucho.pages.dev/",
+    image: "/img/sg.jpg",
   },
 ];
 
