@@ -40,24 +40,6 @@ const projects = [
     href: "https://www.instagram.com/puerto_hamlet/?hl=es-la",
     image: "/img/ph.jpg",
   },
-  {
-    name: "BAIRES FLY",
-    category: "DISEÑO Y DESARROLLO WEB",
-    href: "https://www.bairesfly.com",
-    image: "/img/bf.jpg",
-  },
-  {
-    name: "HOTELES SAVOIA",
-    category: "DISEÑO Y DESARROLLO WEB",
-    href: "https://www.hotelessavoia.com",
-    image: "/img/hs.jpg",
-  },
-  {
-    name: "BRICKELL DESARROLLADORA",
-    category: "DISEÑO Y DESARROLLO WEB · GESTIÓN DE REDES SOCIALES",
-    href: "https://www.brickelldesarrolladora.com",
-    image: "/img/bd.jpg",
-  },
 ];
 
 const fontFamily = '"Helvetica Neue", Helvetica, Arial, system-ui, sans-serif';
